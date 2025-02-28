@@ -5,15 +5,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>BLESSED-PUMA</title>
         <style>
-            body {
-                margin: 0;
-                padding: 0;
-                background: url('https://i.imgur.com/j7BFNpY.png') no-repeat center center fixed;
-                background-size: cover;
-                font-family: Arial, sans-serif;
-                color: white;
-            }
-      .header {
+         body {
+    margin: 0;
+    padding: 0;
+    background: url('https://i.imgur.com/j7BFNpY.png') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+/* Header */
+.header {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -21,137 +23,177 @@
     padding: 20px;
     background: rgba(0, 0, 0, 0.8);
 }
-            .menu {
-                display: flex;
-                gap: 20px;
-            }
-            .menu a {
-                color: white;
-                text-decoration: none;
-                font-weight: bold;
-            }
-            .content {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                min-height: 70vh;
-                padding: 20px;
-            }
-            .content img {
-                max-width: 90%;
-                border-radius: 15px;
-                margin-bottom: 20px;
-            }
-            .footer {
-                background: rgba(0, 0, 0, 0.8);
-                text-align: center;
-                padding: 20px;
-                position: relative;
-            }
-            .social-icons {
-                display: flex;
-                justify-content: center;
-                gap: 15px;
-                margin-bottom: 10px;
-            }
-            .social-icons img {
-                width: 30px;
-                height: 30px;
-            }
-            /* Estilos para el título */
-            .title {
-                font-size: 3rem; /* Tamaño de letra más grande */
-                margin-bottom: 20px; /* Espacio debajo del título */
-                text-align: center;
-            }
-            /* Estilos para el reproductor de Spotify */
-            .spotify-player {
-                margin-top: 40px; /* Espacio arriba del reproductor */
-                width: 80%; /* Ancho del reproductor */
-                max-width: 500px; /* Ancho máximo */
-                margin-bottom: 20px; /* Espacio debajo del reproductor */
-            }
-            /* Estilos para la ventana de BIO */
-            .bio-modal {
-                display: none; /* Oculto por defecto */
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                background: rgba(0, 0, 0, 0.9);
-                padding: 20px;
-                border-radius: 10px;
-                color: white;
-                z-index: 1000;
-                width: 80%;
-                max-width: 600px;
-            }
-            .bio-modal h2 {
-                margin-top: 0;
-            }
-            .bio-modal p {
-                line-height: 1.6;
-            }
-            .close-btn {
-                position: absolute;
-                top: 10px;
-                right: 10px;
-                background: none;
-                border: none;
-                color: white;
-                font-size: 20px;
-                cursor: pointer;
-            }
 
-            /* MEDIA QUERIES PARA DISPOSITIVOS MÓVILES Y TABLETAS */
+/* Ajuste del logo */
+.logo {
+    max-width: 150px; 
+    height: auto;
+}
 
-            /* Pantallas pequeñas (móviles) */
-            @media only screen and (max-width: 600px) {
-                .header {
-                    flex-direction: column;
-                    padding: 10px;
-                    align-items: center;
-                }
-                .menu {
-                    flex-direction: column;
-                    gap: 10px;
-                    align-items: center;
-                }
-                .title {
-                    font-size: 2.5rem; /* Reducir tamaño de letra en móvil */
-                }
-                .content {
-                    padding: 10px;
-                }
-                .content img {
-                    max-width: 100%;
-                    border-radius: 10px; /* Reducción del borde en móviles */
-                }
-                .spotify-player {
-                    width: 100%;
-                    max-width: 100%;
-                }
-                .social-icons {
-                    gap: 10px;
-                }
-                .footer p {
-                    font-size: 14px; /* Reducir tamaño de texto en pie de página */
-                }
-            }
+/* Menú */
+.menu {
+    display: flex;
+    gap: 20px;
+}
 
-            /* Pantallas medianas (tabletas) */
-            @media only screen and (max-width: 768px) {
-                .title {
-                    font-size: 2.8rem; /* Ajuste del tamaño del título */
-                }
-                .content img {
-                    max-width: 80%;
-                }
-                .spotify-player {
-                    width: 90%;
-                }
-            }
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Contenido principal */
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh; /* Reducido en móviles */
+    padding: 20px;
+    text-align: center;
+}
+
+.content img {
+    max-width: 90%;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+/* Footer */
+.footer {
+    background: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Estilos para el título */
+.title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Reproductor de Spotify */
+.spotify-player {
+    margin-top: 40px;
+    width: 80%;
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+/* BIO - Ventana emergente */
+.bio-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    z-index: 1000;
+    width: 90%; /* Mejor ajuste para móviles */
+    max-width: 500px;
+}
+
+.bio-modal h2 {
+    margin-top: 0;
+}
+
+.bio-modal p {
+    line-height: 1.6;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* 🔹 RESPONSIVE DESIGN 🔹 */
+
+/* 📱 Móviles */
+@media only screen and (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+    
+    .logo {
+        max-width: 120px;
+    }
+
+    .menu {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .content {
+        padding: 10px;
+    }
+
+    .content img {
+        max-width: 100%;
+        border-radius: 10px;
+    }
+
+    .spotify-player {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .social-icons {
+        gap: 10px;
+    }
+
+    .footer p {
+        font-size: 14px;
+    }
+
+    .bio-modal {
+        width: 95%; /* Ajuste mejorado */
+    }
+}
+
+/* 📟 Tabletas */
+@media only screen and (max-width: 768px) {
+    .title {
+        font-size: 2.8rem;
+    }
+
+    .content img {
+        max-width: 80%;
+    }
+
+    .spotify-player {
+        width: 90%;
+    }
+}
         </style>
     </head>
     <body>
