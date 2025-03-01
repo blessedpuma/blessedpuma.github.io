@@ -20,16 +20,21 @@
         .header {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 15px;
             background: rgba(0, 0, 0, 0.8);
             width: 100%;
         }
 
+        .header img {
+            max-width: 150px;
+        }
+
         .menu {
             display: flex;
-            gap: 20px;
+            gap: 15px;
+            margin-top: 10px;
         }
 
         .menu a {
@@ -69,6 +74,7 @@
             text-align: center;
             padding: 20px;
             width: 100%;
+            margin-top: auto;
         }
 
         .social-icons {
@@ -89,11 +95,22 @@
             }
 
             .content {
-                width: 90%;
+                width: 95%;
             }
 
             .spotify-player {
                 width: 100%;
+            }
+
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .menu {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
             }
         }
     </style>
