@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BLESSED-PUMA</title>
     <style>
-        /* Fondo fijo solo en versión web */
+        /* Fondo fijo */
         body {
             margin: 0;
             padding: 0;
@@ -17,7 +17,7 @@
             display: flex;
             flex-direction: column;
             overflow-x: hidden;
-            background-attachment: fixed; /* Fija la imagen de fondo */
+            background-attachment: fixed; /* Fondo fijo */
         }
 
         .header, .content, .footer {
@@ -220,13 +220,6 @@
                 margin-top: 20px; /* Reducir el margen superior del reproductor */
             }
         }
-
-        /* Desactivar el fondo fijo en móviles */
-        @media only screen and (max-width: 768px) {
-            body {
-                background-attachment: scroll; /* Desactiva el efecto en móviles */
-            }
-        }
     </style>
 </head>
 <body>
@@ -270,6 +263,7 @@
     </div>
 
     <script>
+        // Script para la ventana de BIO
         const bioLink = document.getElementById('bio-link');
         const bioModal = document.getElementById('bio-modal');
         const closeBtn = document.getElementById('close-btn');
