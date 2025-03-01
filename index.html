@@ -12,9 +12,9 @@
             background-size: cover;
             font-family: Arial, sans-serif;
             color: white;
-            min-height: 100vh; /* Ocupa al menos el alto completo de la pantalla */
+            min-height: 100vh;
             display: flex;
-            flex-direction: column; /* Alinea el footer en la parte inferior */
+            flex-direction: column;
         }
 
         /* Header */
@@ -25,6 +25,8 @@
             align-items: center;
             padding: 20px;
             background: rgba(0, 0, 0, 0.8);
+            width: 100%; /* Ocupa todo el ancho */
+            box-sizing: border-box; /* Incluye el padding en el ancho total */
         }
 
         /* Ajuste del logo */
@@ -47,7 +49,7 @@
 
         /* Contenido principal */
         .content {
-            flex: 1; /* Hace que el contenido ocupe el espacio restante */
+            flex: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -68,7 +70,7 @@
             text-align: center;
             padding: 20px;
             position: relative;
-            width: 100%; /* Asegura que ocupe todo el ancho */
+            width: 100%;
         }
 
         .social-icons {
