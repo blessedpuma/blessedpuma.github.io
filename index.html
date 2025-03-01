@@ -5,24 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BLESSED-PUMA</title>
     <style>
-        /* Evitar desbordamiento horizontal */
+        /* Fondo inicial */
         body {
             margin: 0;
             padding: 0;
-            background: url('https://i.imgur.com/j7BFNpY.png') no-repeat center center fixed;
+            background: url('https://i.imgur.com/j7BFNpY.png') no-repeat center top; /* Posición inicial arriba */
             background-size: cover;
             font-family: Arial, sans-serif;
             color: white;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            overflow-x: hidden; /* Evita el desplazamiento horizontal */
+            overflow-x: hidden;
         }
 
-        /* Asegurar que el contenido no se desborde */
         .header, .content, .footer {
             width: 100%;
-            box-sizing: border-box; /* Incluye el padding en el ancho total */
+            box-sizing: border-box;
         }
 
         /* Header */
@@ -65,7 +64,7 @@
         }
 
         .content img {
-            max-width: 100%; /* Asegura que no se desborde */
+            max-width: 100%;
             border-radius: 15px;
             margin-bottom: 20px;
         }
@@ -100,13 +99,13 @@
         /* Reproductor de Spotify */
         .spotify-player {
             margin-top: 40px;
-            width: 100%; /* Ocupa todo el ancho disponible */
-            max-width: 500px; /* Limita el ancho máximo */
+            width: 100%;
+            max-width: 500px;
             margin-bottom: 20px;
         }
 
         .spotify-player iframe {
-            max-width: 100%; /* Asegura que no se desborde */
+            max-width: 100%;
         }
 
         /* BIO - Ventana emergente */
@@ -209,6 +208,24 @@
                 width: 90%;
             }
         }
+
+        /* 🔹 VERSIÓN WEB 🔹 */
+        @media only screen and (min-width: 769px) {
+            .title {
+                margin-top: 20px; /* Reducir el margen superior del título */
+            }
+
+            .spotify-player {
+                margin-top: 20px; /* Reducir el margen superior del reproductor */
+            }
+        }
+
+        /* Desactivar el efecto en móviles */
+        @media only screen and (max-width: 768px) {
+            body {
+                background-position: center center; /* Fondo centrado en móviles */
+            }
+        }
     </style>
 </head>
 <body>
@@ -252,6 +269,24 @@
     </div>
 
     <script>
+        // Mover el fondo con la rueda del mouse (solo en versión web)
+        if (window.innerWidth > 768) { // Solo aplicar en versión web
+            let backgroundPositionY = 0; // Posición inicial del fondo
+            const backgroundSpeed = 0.5; // Velocidad del desplazamiento
+
+            window.addEventListener("wheel", (e) => {
+                // Ajustar la posición del fondo basado en el scroll
+                backgroundPositionY += e.deltaY * backgroundSpeed;
+
+                // Limitar el desplazamiento para que no se salga del fondo
+                backgroundPositionY = Math.max(-100, Math.min(0, backgroundPositionY));
+
+                // Aplicar la nueva posición del fondo
+                document.body.style.backgroundPositionY = `${backgroundPositionY}px`;
+            });
+        }
+
+        // Script para la ventana de BIO
         const bioLink = document.getElementById('bio-link');
         const bioModal = document.getElementById('bio-modal');
         const closeBtn = document.getElementById('close-btn');
