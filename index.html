@@ -3,162 +3,285 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Web Hentai +18</title>
-    <link rel="stylesheet" href="style.css">
+    <title>BLESSED-PUMA</title>
     <style>
+        /* Fondo fijo */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #181818;
-            color: #f1f1f1;
             margin: 0;
             padding: 0;
-        }
-        header {
-            background: #202020;
-            padding: 20px;
-            text-align: center;
-            font-size: 24px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-        }
-        section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-            padding: 20px;
-            max-width: 1200px;
-            margin: auto;
-        }
-        .video {
-            background: #252525;
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            text-align: center;
-        }
-        iframe {
-            width: 100%;
-            height: 200px;
-            border: none;
-            border-radius: 10px;
-        }
-        footer {
-            background: #202020;
-            text-align: center;
-            padding: 10px;
-            margin-top: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-        }
-        .categoria {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        select {
-            padding: 10px;
-            border-radius: 10px;
-            background: #202020;
-            color: #f1f1f1;
-            border: none;
-            width: 90%;
-            max-width: 400px;
-        }
-        #popup {
+            background: url('https://i.imgur.com/j7BFNpY.png') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: white;
+            min-height: 100vh;
             display: flex;
-            position: fixed;
-            top: 0;
-            left: 0;
+            flex-direction: column;
+            overflow-x: hidden;
+            background-attachment: fixed; /* Fondo fijo */
+        }
+
+        .header, .content, .footer {
             width: 100%;
-            height: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 20px;
             background: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Ajuste del logo */
+        .logo {
+            max-width: 200px;
+            height: auto;
+        }
+
+        /* Menú */
+        .menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Contenido principal */
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
+            padding: 20px;
             text-align: center;
-            z-index: 9999;
         }
-        #popup div {
-            background: #252525;
+
+        .content img {
+            max-width: 100%;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.8);
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .social-icons img {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Estilos para el título */
+        .title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Reproductor de Spotify */
+        .spotify-player {
+            margin-top: 40px;
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 20px;
+        }
+
+        .spotify-player iframe {
+            max-width: 100%;
+        }
+
+        /* BIO - Ventana emergente */
+        .bio-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.95); /* Más opaco */
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-            max-width: 400px;
+            color: white;
+            z-index: 1000;
             width: 90%;
+            max-width: 500px;
         }
-        button {
-            padding: 10px 20px;
-            margin-top: 10px;
+
+        .bio-modal h2 {
+            margin-top: 0;
+        }
+
+        .bio-modal p {
+            line-height: 1.6;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
             border: none;
-            background: #ff0000;
-            color: #fff;
-            border-radius: 10px;
+            color: white;
+            font-size: 20px;
             cursor: pointer;
         }
+
+        /* 🔹 RESPONSIVE DESIGN 🔹 */
+
+        /* 📱 Móviles */
+        @media only screen and (max-width: 600px) {
+            .header {
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 10px;
+            }
+
+            .logo {
+                max-width: 160px;
+            }
+
+            .menu {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+
+            .title {
+                font-size: 2.5rem;
+            }
+
+            .content {
+                padding: 10px;
+            }
+
+            .content img {
+                max-width: 100%;
+                border-radius: 10px;
+            }
+
+            .spotify-player {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .social-icons {
+                gap: 10px;
+            }
+
+            .footer p {
+                font-size: 14px;
+            }
+
+            .bio-modal {
+                width: 95%;
+            }
+        }
+
+        /* 📟 Tabletas */
+        @media only screen and (max-width: 768px) {
+            .title {
+                font-size: 2.8rem;
+            }
+
+            .content img {
+                max-width: 80%;
+            }
+
+            .spotify-player {
+                width: 90%;
+            }
+        }
+
+        /* 🔹 VERSIÓN WEB 🔹 */
+        @media only screen and (min-width: 769px) {
+            .title {
+                margin-top: 10px; /* Reducir el margen superior del título */
+            }
+
+            .spotify-player {
+                margin-top: 10px; /* Reducir el margen superior del reproductor */
+            }
+        }
     </style>
-    <script>
-        const videos = {
-            hentai: [{ url: 'https://www.pornhub.com/embed/ph5f8c3d2e5b0e8', fuente: 'Pornhub' }],
-            chaturbate: [{ url: 'https://chaturbate.com/embed/sampleuser', fuente: 'Chaturbate' }],
-            amateur: [{ url: 'https://www.pornhub.com/embed/ph5f8c3d2e5b1a0', fuente: 'Pornhub' }],
-            lesbianas: [{ url: 'https://www.pornhub.com/embed/ph5f8c3d2e5b1b0', fuente: 'Pornhub' }],
-            anal: [{ url: 'https://www.pornhub.com/embed/ph5f8c3d2e5b1c0', fuente: 'Pornhub' }],
-            milf: [{ url: 'https://www.pornhub.com/embed/ph5f8c3d2e5b1d0', fuente: 'Pornhub' }],
-            bigass: [{ url: 'https://www.pornhub.com/embed/ph5f8c3d2e5b1e0', fuente: 'Pornhub' }],
-            gay: [{ url: 'https://www.pornhub.com/embed/ph5f8c3d2e5b1f0', fuente: 'Pornhub' }],
-            shemale: [{ url: 'https://www.pornhub.com/embed/ph5f8c3d2e5b1g0', fuente: 'Pornhub' }]
-        };
-
-        function mostrarVideos(categoria) {
-            const contenedor = document.getElementById('videos');
-            contenedor.innerHTML = '';
-            videos[categoria].forEach(video => {
-                contenedor.innerHTML += `
-                    <div class="video">
-                        <iframe src="${video.url}" allowfullscreen></iframe>
-                        <p>Fuente: ${video.fuente}</p>
-                    </div>`;
-            });
-        }
-
-        window.onload = function () {
-            document.getElementById('popup').style.display = 'flex';
-        };
-
-        function aceptar() {
-            document.getElementById('popup').style.display = 'none';
-        }
-    </script>
 </head>
 <body>
-<div id="popup">
-    <div>
-        <h2>Advertencia +18</h2>
-        <p>Este sitio contiene contenido solo para adultos. Si no tienes la edad adecuada, por favor abandona la página.</p>
-        <button onclick="aceptar()">Aceptar</button>
+    <header class="header">
+        <img src="https://i.imgur.com/FH94woo.png" alt="Logo de MUSIC AND MADNESS" class="logo">
+        <nav class="menu">
+            <a href="#bio" id="bio-link">BIO</a>
+            <a href="mailto:blessed.puma.lofi@gmail.com">CONTACT</a>
+        </nav>
+    </header>
+    <section class="content">
+        <h1 class="title">MUSIC & MADNESS</h1>
+        <div class="spotify-player">
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/12psePlC5dB3GOZLiL262J?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="social-icons">
+            <a href="https://www.instagram.com/blessedpuma/" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram"></a>
+            <a href="https://open.spotify.com/intl-es/artist/12psePlC5dB3GOZLiL262J?si=d24uXkEqT_W_AejV5uppPw" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174872.png" alt="Spotify"></a>
+            <a href="https://www.youtube.com/@blessedpuma" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174883.png" alt="YouTube"></a>
+            <a href="https://soundcloud.com/blessedpuma" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/145/145809.png" alt="SoundCloud"></a>
+        </div>
+        <p>&copy; 2025 Blessed-Puma</p>
+    </footer>
+
+    <div id="bio-modal" class="bio-modal">
+        <button class="close-btn" id="close-btn">&times;</button>
+        <h2>BIO</h2>
+        <p>
+            ¡Bienvenidxs a mi espacio interdimencional!
+            <br><br>
+            ¡Hola! Soy BLESSED-PUMA, un intento de artista/productor/dj apasionado por la música y la creatividad. De familia de músicos y amantes de la música, he trabajado en diversos proyectos que combinan sonidos únicos y emociones profundas. Mi objetivo es conectar con mi audiencia a través de melodías que inspiren y transformen.
+            <br><br>
+            -----------
+            <br><br>
+            Hello! Welcome to my interdimensional space!
+            <br><br>
+            I am BLESSED-PUMA, an aspiring artist/producer/dj passionate about music and creativity. Coming from a family of musicians and music lovers, I have worked on various projects that combine unique sounds and deep emotions. My goal is to connect with my audience through melodies that inspire and transform.
+        </p>
     </div>
-</div>
 
-<header>
-    <h1>Bienvenido a Mi Web Hentai</h1>
-    <p>Contenido solo para mayores de 18 años</p>
-</header>
+    <script>
+        // Script para la ventana de BIO
+        const bioLink = document.getElementById('bio-link');
+        const bioModal = document.getElementById('bio-modal');
+        const closeBtn = document.getElementById('close-btn');
 
-<div class="categoria">
-    <label for="categoria">Selecciona una categoría:</label>
-    <select id="categoria" onchange="mostrarVideos(this.value)">
-        <option value="hentai">Hentai</option>
-        <option value="chaturbate">Chaturbate</option>
-        <option value="amateur">Amateur</option>
-        <option value="lesbianas">Lesbianas</option>
-        <option value="anal">Anal</option>
-        <option value="milf">MILF</option>
-        <option value="bigass">Big Ass</option>
-        <option value="gay">Gay</option>
-        <option value="shemale">Shemale</option>
-    </select>
-</div>
+        bioLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            bioModal.style.display = 'block';
+        });
 
-<section id="videos"></section>
+        closeBtn.addEventListener('click', () => {
+            bioModal.style.display = 'none';
+        });
 
-<footer>
-    <p>&copy; 2025 Mi Web Hentai - Solo contenido con licencia o embebido legalmente. Todos los derechos reservados.</p>
-</footer>
+        window.addEventListener('click', (e) => {
+            if (e.target === bioModal) {
+                bioModal.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
