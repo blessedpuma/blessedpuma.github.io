@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BLESSED-PUMA</title>
     <style>
+        /* Evitar desbordamiento horizontal */
         body {
             margin: 0;
             padding: 0;
@@ -15,6 +16,13 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            overflow-x: hidden; /* Evita el desplazamiento horizontal */
+        }
+
+        /* Asegurar que el contenido no se desborde */
+        .header, .content, .footer {
+            width: 100%;
+            box-sizing: border-box; /* Incluye el padding en el ancho total */
         }
 
         /* Header */
@@ -23,10 +31,8 @@
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            padding: 40px 20px; /* Aumentado el padding vertical */
+            padding: 40px 20px;
             background: rgba(0, 0, 0, 0.8);
-            width: 100%;
-            box-sizing: border-box;
         }
 
         /* Ajuste del logo */
@@ -59,7 +65,7 @@
         }
 
         .content img {
-            max-width: 90%;
+            max-width: 100%; /* Asegura que no se desborde */
             border-radius: 15px;
             margin-bottom: 20px;
         }
@@ -70,7 +76,6 @@
             text-align: center;
             padding: 20px;
             position: relative;
-            width: 100%;
         }
 
         .social-icons {
@@ -95,9 +100,13 @@
         /* Reproductor de Spotify */
         .spotify-player {
             margin-top: 40px;
-            width: 80%;
-            max-width: 500px;
+            width: 100%; /* Ocupa todo el ancho disponible */
+            max-width: 500px; /* Limita el ancho máximo */
             margin-bottom: 20px;
+        }
+
+        .spotify-player iframe {
+            max-width: 100%; /* Asegura que no se desborde */
         }
 
         /* BIO - Ventana emergente */
@@ -142,7 +151,7 @@
             .header {
                 flex-direction: column;
                 align-items: center;
-                padding: 20px 40px; /* Padding reducido para móviles */
+                padding: 20px 10px;
             }
 
             .logo {
@@ -178,7 +187,7 @@
             }
 
             .footer p {
-                font-size: 20px;
+                font-size: 14px;
             }
 
             .bio-modal {
