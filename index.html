@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BLESSED-PUMA</title>
     <style>
-        /* Fondo inicial */
+        /* Fondo fijo solo en versión web */
         body {
             margin: 0;
             padding: 0;
-            background: url('https://i.imgur.com/j7BFNpY.png') no-repeat center top; /* Posición inicial arriba */
+            background: url('https://i.imgur.com/j7BFNpY.png') no-repeat center center fixed;
             background-size: cover;
             font-family: Arial, sans-serif;
             color: white;
@@ -17,6 +17,7 @@
             display: flex;
             flex-direction: column;
             overflow-x: hidden;
+            background-attachment: fixed; /* Fija la imagen de fondo */
         }
 
         .header, .content, .footer {
@@ -220,10 +221,10 @@
             }
         }
 
-        /* Desactivar el efecto en móviles */
+        /* Desactivar el fondo fijo en móviles */
         @media only screen and (max-width: 768px) {
             body {
-                background-position: center center; /* Fondo centrado en móviles */
+                background-attachment: scroll; /* Desactiva el efecto en móviles */
             }
         }
     </style>
@@ -269,24 +270,6 @@
     </div>
 
     <script>
-        // Mover el fondo con la rueda del mouse (solo en versión web)
-        if (window.innerWidth > 768) { // Solo aplicar en versión web
-            let backgroundPositionY = 0; // Posición inicial del fondo
-            const backgroundSpeed = 0.5; // Velocidad del desplazamiento
-
-            window.addEventListener("wheel", (e) => {
-                // Ajustar la posición del fondo basado en el scroll
-                backgroundPositionY += e.deltaY * backgroundSpeed;
-
-                // Limitar el desplazamiento para que no se salga del fondo
-                backgroundPositionY = Math.max(-100, Math.min(0, backgroundPositionY));
-
-                // Aplicar la nueva posición del fondo
-                document.body.style.backgroundPositionY = `${backgroundPositionY}px`;
-            });
-        }
-
-        // Script para la ventana de BIO
         const bioLink = document.getElementById('bio-link');
         const bioModal = document.getElementById('bio-modal');
         const closeBtn = document.getElementById('close-btn');
